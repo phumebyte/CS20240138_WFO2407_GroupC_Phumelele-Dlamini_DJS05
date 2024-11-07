@@ -37,29 +37,17 @@ class Counter {
 // Create a new counter instance
 const counter = new Counter();
 
-/* { type: 'ADD' }
-{ type: 'SUBTRACT' }
-{ type: 'RESET' } 
-function counter(state = 0, action) {
-  switch (action.type) {
-    case 'ADD':
-      return state + 1;
-    case 'SUBTRACT':
-      return state - 1;
-    default:
-      return state;
-  }
-}
-let store = Redux.createStore(counter);
-store.subscribe(() => console.log(store.getState()));
-store.dispatch({ type: 'ADD' }); 
-    add() {
-        this.state.value++;
-    }
-    subtract() {
-        this.state.value--;
-    }
-    reset() {
-        this.state.value = 0;
-    }
- */
+// Subscribe a listener to the counter that will log the state whenever it changes
+counter.subscribe(() => console.log(store.getState()));
+
+// Dispatch an 'add' action to the counter, which will increment the count to 1
+counter.dispatch({ type: 'ADD' }); // { count: 1 }
+
+// Dispatch another 'add' action to the counter, which will increment the count to 2
+counter.dispatch({ type: 'ADD' }); // { count: 2 }
+
+// Dispatch a 'subtract' action to the counter, which will decrement the count to 1
+counter.dispatch({ type: 'SUBTRACT' }); // { count: 1 }
+
+// Dispatch a 'reset' action to the counter, which will set the count to 0
+counter.dispatch({ type: 'RESET' }); // { count: 0 }
