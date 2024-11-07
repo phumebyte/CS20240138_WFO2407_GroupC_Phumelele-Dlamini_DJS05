@@ -18,11 +18,14 @@ class Counter {
         // Dispatch action to update the state
         dispatch(action) {
             // Check the type of the action and update the state accordingly
-            if (action.type === 'add') {
+            if (action.type === 'ADD') {
                 this.state = { count: this.state.count + 1 };
             }
-            else if(action.type === 'subtract'){
+            else if(action.type === 'SUBTRACT'){
                 this.state = { count: this.state.count - 1 };
+            }
+            else if(action.type === 'RESET'){
+                this.state = { count: 0 };
             }
             // Call all subscribed listener functions with the updated state
             this.listeners.forEach((listener) => listener());
