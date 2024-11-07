@@ -13,6 +13,13 @@ class Counter {
     // Subscribe a listener function to be called whenever the state changes
     subscribe(listener) {
         this.listeners.push(listener);
+
+        // return an unsubscribe function to remove the listener
+        return () => {
+            if (Array.isArray(this.listeners)) {
+                this.listeners = this.listeners.filter(l => l !== listener);
+            }
+        };
     }
 
         // Dispatch action to update the state
