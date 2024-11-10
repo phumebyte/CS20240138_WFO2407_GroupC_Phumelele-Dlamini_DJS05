@@ -45,3 +45,20 @@ const store = createStore(reducer, initialState);
 store.subscribe((state) =>
     console.log("State:", state)
   ); 
+
+/* SCENARIO 1: Initial State Verification */
+console.log("SCENARIO 1: Initial State Verification");
+console.log("Initial state:", store.getState());
+
+/* SCENARIO 2: Incrementing the Counter */
+console.log("SCENARIO 2: Incrementing the Counter");
+store.dispatch(add());
+store.dispatch(add());
+
+/* SCENARIO 3: Decrementing the Counter */
+console.log("SCENARIO 3: Decrementing the Counter");
+store.dispatch(subtract());
+
+/* SCENARIO 4: Resetting the Counter */
+console.log("SCENARIO 4: Resetting the Counter");
+store.dispatch(reset());
