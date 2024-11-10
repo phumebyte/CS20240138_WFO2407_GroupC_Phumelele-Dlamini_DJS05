@@ -40,5 +40,8 @@ const createStore = (reducer, initialState) => {
 
 /* usage */
 const store = createStore(reducer, initialState);
-  
-  
+
+/* subscriber function state log */
+store.subscribe((state) =>
+    console.log("State:", state)
+  ); 
