@@ -1,69 +1,22 @@
 # DJS05 Project Brief: Building a Redux-Inspired Store for a Tally App
-
-In this challenge, you will venture into the realm of state management by constructing a Redux-inspired store to manage the state of a simple Tally App. Your primary goal is to manage the app's state changes efficiently, focusing on core functionalities like incrementing, decrementing, and resetting a counter. Instead of rendering changes on the UI, you'll subscribe to state updates and log them to the console, highlighting the power of state management in applications.
-
 ## Objective
-Create a minimalistic, Redux-inspired store to manage and log the state of a counting Tally App. Your implementation will not involve UI rendering; instead, it will use console logs to demonstrate state management effectively.
-
-Observer Pattern resource from Refactoring Guru: https://refactoring.guru/design-patterns/observer
+I created a basic framework for managing a simple counter state in purely Javascript as the task did not involve UI rendering, only the console. In this challenge, the program allows state management and updates through actions and notifying subscribers of any changes. It encapsulates the core principles of a state management system.
 
 ## User Stories (Gherkin Syntax)
-Your challenge will encompass the following scenarios, tested through your store's implementation:
+I implemented the scenarious by subscribing to state changes and logging the state. It is important to understand the behaviour of the application and be able to monitor it, hence the importance of state logging to the console.
 
-### SCENARIO 1: Initial State Verification
-```
-GIVEN no interactions have been performed yet
-WHEN the “getState” method is run
-AND the result is logged to the console
-AND the browser console is open
-THEN the state should show a count of 0
-```
+## Scenarios (Store Usage)
+- Initial state Verification - Logs the intial state
+- Incrementing - Dispatches the two 'ADD' actions to increment the count
+- Decrementing - Dispatches a 'SUBTRACT' action to decrement the count
+- Resetting the Counter - Dispatches a 'RESET' action to reset the count to '0'
 
-### SCENARIO 2: Incrementing the Counter
-```
-GIVEN no interactions have been performed yet
-WHEN an “ADD” action is dispatched
-AND another “ADD” action is dispatched
-AND the browser console is open
-THEN the state should show a count of 2
-```
+## Role of Functional Programming principles
+- Pure Functions: The reducer function is a pure function, meaning it produces the same output for the same input without side effects. This reinforces the idea of writing predictable and testable code.
+- Higher-Order Functions: The createStore function is a higher-order function that returns an object with methods for interacting with the state. This illustrates how functions can be used to encapsulate behavior and manage complexity.
 
-### SCENARIO 3: Decrementing the Counter
-```
-GIVEN the current count in the state is 2
-WHEN a “SUBTRACT” action is dispatched
-AND the browser console is open
-THEN the state should display a count of 1
-```
+## Reflection
+- Throughout this challenge, I faced several hurdles. Initially, I struggled with the concept of immutability and how to implement it correctly in the reducer. It took me some time to grasp that returning a new state object is essential to ensure that the previous state remains unchanged. Additionally, managing subscribers and ensuring they were notified of state changes required careful thought and implementation.
+- Another challenge was ensuring that I understood the flow of data from actions to state updates. I had to keep track of how each action impacted the state and how the reducer processed these actions. This required a lot of practice and attention to detail. <br>
 
-### SCENARIO 4: Resetting the Counter
-```
-GIVEN the current count in the state is 1
-WHEN a “RESET” action is dispatched
-AND the browser console is open
-THEN the state should display a count of 0
-```
-
-## Requirements
-- **Implement a Global Store**: Create a Redux-inspired store that holds the state of the tally counter. The store should have the ability to dispatch actions and subscribe to state changes.
-- **State Management Functions**:
-  - **getState**: Returns the current state.
-  - **dispatch**: Takes an action (e.g., ADD, SUBTRACT, RESET) and updates the state accordingly.
-  - **subscribe**: Accepts a function that gets called whenever the state changes. This function should log the new state to the console.
-- **No UI Rendering**: This challenge focuses on state management without the complexity of UI rendering. All state changes should be observable through console logs.
-- **Functional Programming Principles**: Draw upon functional programming concepts as illustrated in the reference videos. While Redux is the inspiration, you're encouraged to apply these principles creatively in your implementation.
-
-## Submission Guidelines
-Your submission should consist of a JavaScript file(s) that encapsulate your Redux-inspired store and the logic for dispatching actions and subscribing to changes. Include a README.md file explaining:
-- How to run your code.
-- A brief overview of your approach.
-- Any challenges you faced and how you overcame them.
-
-Ensure your code is well-commented and adheres to best practices for readability and maintainability.
-
-## Evaluation Criteria
-- **Correctness**: Your implementation should correctly handle the scenarios as outlined in the user stories.
-- **Code Quality**: Use of functional programming principles, clear naming conventions, and code organization.
-- **Documentation**: Clarity of your approach and reflections in the README.md.
-
-This challenge is an excellent opportunity to demonstrate your understanding of state management concepts and functional programming principles. Good luck!
+In conclusion, this challenge was a valuable stepping stone in understanding foundational skills in functional programming and state management, although still a bit foggy, I am excited to build upon these foundations and apply these concepts confidently in the future.
