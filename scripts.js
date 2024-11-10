@@ -19,4 +19,26 @@ const reducer = (state = initialState, action) => {
         return state;
     }
 };
+
+/* Store implementation */
+const createStore = (reducer, initialState) => {
+    let currentState = initialState;
+    const subscribers = new Set();
+  
+    const getState = () => currentState;
+    const dispatch = (action) => {
+      currentState = reducer(currentState, action);
+      subscribers.forEach((subscriber) => subscriber(currentState));
+    };
+    const subscribe = (subscriber) => {
+      subscribers.add(subscriber);
+      return () => subscribers.delete(subscriber);
+    };
+  
+    return { getState, dispatch, subscribe };
+  };
+
+/* usage */
+const store = createStore(reducer, initialState);
+  
   
